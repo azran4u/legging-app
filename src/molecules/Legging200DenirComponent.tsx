@@ -133,7 +133,7 @@ export default function Legging200DenirComponent(
         alignItems: 'center',
       }}
     >
-      <Card sx={{ width: '350px' }}>
+      <Card>
         <CardMedia
           component="img"
           height="194"

@@ -6,6 +6,7 @@ class TextMessages {
   pleasePickColor = 'יש לבחור צבע';
   pleasePickSize = 'יש לבחור מידה';
   size = 'מידה';
+  leggings = 'טייצים';
   color = 'צבע';
   count = 'כמות';
   discount = 'מבצע';
