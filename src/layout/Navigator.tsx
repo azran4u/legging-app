@@ -10,18 +10,32 @@ import theme from '../shared/theme';
 import textMessages from '../shared/TextMessages';
 import TextMessages from '../shared/TextMessages';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import CheckroomIcon from '@mui/icons-material/Checkroom';
+import InfoIcon from '@mui/icons-material/Info';
 
 const categories = [
   {
     id: 'Operations',
     children: [
       {
+        id: textMessages.leggings,
+        icon: <CheckroomIcon />,
+        active: true,
+        visible: true,
+      },
+      {
         id: textMessages.cart,
         icon: <ShoppingCartIcon />,
         active: true,
         visible: true,
       },
-      { id: textMessages.settings, icon: <SettingsIcon />, visible: true },
+      {
+        id: textMessages.about,
+        icon: <InfoIcon />,
+        visible: true,
+        active: true,
+      },
+      { id: textMessages.settings, icon: <SettingsIcon />, visible: false },
       { id: textMessages.admin, icon: <SettingsIcon />, visible: false },
     ],
   },

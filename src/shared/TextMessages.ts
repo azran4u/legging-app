@@ -25,6 +25,8 @@ class TextMessages {
   notAuthorized = 'אינך מורשה להתחבר למערכת. אנא פנה לראש האזור שלך';
   signOutAndTryAgain = 'התנתק ונסה שוב';
   signOut = 'התנתק';
+  contactUs = 'צור קשר';
+  about = 'אודות';
   signupHereToTheSystem = 'הרשם כאן למערכת';
 }
 

@@ -8,6 +8,7 @@ import Tooltip from '@mui/material/Tooltip';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CheckroomIcon from '@mui/icons-material/Checkroom';
 import textMessages from '../shared/TextMessages';
+import { Typography } from '@mui/material';
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
@@ -36,7 +37,10 @@ export default function Header(props: HeaderProps) {
 
             <Grid item xs>
               <IconButton color="inherit">
-                <CheckroomIcon /> {textMessages.leggings}
+                <CheckroomIcon />
+                <Typography variant="body1" display="inline">
+                  {textMessages.leggings}
+                </Typography>
               </IconButton>
             </Grid>
 
