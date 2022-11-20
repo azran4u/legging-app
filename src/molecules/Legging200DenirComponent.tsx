@@ -5,8 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import { useEffect, useState } from 'react';
 import {
-  catalog,
   ColorOption,
+  Legging200Denir,
   legs,
   PriceOptions,
   ProductVariants,
@@ -20,6 +20,7 @@ import ProductColorPickerComponent from '../components/ProductColorPickerCompone
 import ProductSizePickerComponent from '../components/ProductSizePickerComponent';
 import ProductCountPickerComponent from '../components/ProductCountPickerComponent';
 import AddToCartComponent from '../components/AddToCartComponent';
+import { Box } from '@mui/material';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -36,7 +37,13 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-export default function Legging200DenirComponent() {
+export interface Legging200DenirComponentProps {
+  legging200denir: Legging200Denir;
+}
+
+export default function Legging200DenirComponent(
+  props: Legging200DenirComponentProps
+) {
   const [colors, setColors] = useState<ColorOption[]>([]);
 
   const [sizes, setSizes] = useState<SizeOption[]>([]);
@@ -93,7 +100,7 @@ export default function Legging200DenirComponent() {
 
     if (selectedLegLabel) {
       //@ts-ignore
-      const productVariants: ProductVariants = catalog.legging200denir[
+      const productVariants: ProductVariants = props.legging200denir[
         selectedLegLabel
       ] as ProductVariants;
       setVariants(productVariants);
@@ -119,47 +126,55 @@ export default function Legging200DenirComponent() {
   }, [variants, selectedSizeLabel]);
 
   return (
-    <Card>
-      <CardMedia
-        component="img"
-        height="194"
-        image={'../../src/assets/' + selectedImage}
-        alt={selectedImage}
-      />
-      <CardContent>
-        <ProductDescriptionComponent
-          description={catalog.legging200denir.description}
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
+      <Card sx={{ width: '350px' }}>
+        <CardMedia
+          component="img"
+          height="194"
+          image={'../../src/assets/' + selectedImage}
+          alt={selectedImage}
         />
-        <ProductPriceComponent price={priceOptions?.perUnit} />
+        <CardContent>
+          <ProductDescriptionComponent
+            description={props.legging200denir.description}
+          />
+          <ProductPriceComponent price={priceOptions?.perUnit} />
 
-        <ProductDiscountComponent
-          aboveCountDiscount={priceOptions?.aboveCountDiscount}
-        />
+          <ProductDiscountComponent
+            aboveCountDiscount={priceOptions?.aboveCountDiscount}
+          />
 
-        <LegPickerComponent
-          options={legs}
-          selectedLeg={(leg) => setSelectedLegLabel(leg)}
-        />
+          <LegPickerComponent
+            options={legs}
+            selectedLeg={(leg) => setSelectedLegLabel(leg)}
+          />
 
-        <ProductColorPickerComponent
-          colors={colors}
-          selectedColorLabel={(label) => setSelectedColorLabel(label)}
-        />
+          <ProductColorPickerComponent
+            colors={colors}
+            selectedColorLabel={(label) => setSelectedColorLabel(label)}
+          />
 
-        <ProductSizePickerComponent
-          sizes={sizes}
-          selectedSizeLabel={(label) => setSelectedSizeLabel(label)}
-        />
+          <ProductSizePickerComponent
+            sizes={sizes}
+            selectedSizeLabel={(label) => setSelectedSizeLabel(label)}
+          />
 
-        <ProductCountPickerComponent
-          selectedCount={(count) => setCount(count)}
-        />
+          <ProductCountPickerComponent
+            selectedCount={(count) => setCount(count)}
+          />
 
-        <AddToCartComponent
-          enabled={allowAddToCart}
-          add={() => console.log('add to cart')}
-        />
-      </CardContent>
-    </Card>
+          <AddToCartComponent
+            enabled={allowAddToCart}
+            add={() => console.log('add to cart')}
+          />
+        </CardContent>
+      </Card>
+    </Box>
   );
 }

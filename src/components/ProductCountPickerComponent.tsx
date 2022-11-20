@@ -2,6 +2,7 @@ import { Box, Button, ButtonGroup, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
+import textMessages from '../shared/TextMessages';
 
 export interface ProductCountPickerComponentProps {
   selectedCount: (count: number) => void;
@@ -34,7 +35,7 @@ export default function ProductCountPickerComponent(
             color="text.secondary"
             display="inline"
           >
-            כמות:
+            {textMessages.count}:
           </Typography>
 
           <Typography

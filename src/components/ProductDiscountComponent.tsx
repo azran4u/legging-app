@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { AboveCountDiscount } from '../model/catalog';
+import textMessages from '../shared/TextMessages';
 
 export interface ProductDiscountComponentProps {
   aboveCountDiscount?: AboveCountDiscount;
@@ -17,11 +18,12 @@ export default function ProductDiscountComponent(
           sx={{ fontWeight: 'bold', marginRight: '5px' }}
           display="inline"
         >
-          מבצע:
+          {textMessages.discount}:
         </Typography>
         <Typography variant="body2" color="text.secondary" display="inline">
-          {props.aboveCountDiscount.price} ש"ח בקנייה מעל{' '}
-          {props.aboveCountDiscount.count} פריטים
+          {props.aboveCountDiscount.price} {textMessages.newShekel}{' '}
+          {textMessages.buyingAbove} {props.aboveCountDiscount.count}{' '}
+          {textMessages.items}
         </Typography>
       </Box>
     );

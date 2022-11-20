@@ -1,6 +1,7 @@
 import { Box, Button, Radio, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { SizeOption } from '../model/catalog';
+import textMessages from '../shared/TextMessages';
 
 export interface ProductSizePickerComponentProps {
   sizes: SizeOption[];
@@ -13,7 +14,7 @@ export default function ProductSizePickerComponent(
   const [selectedSizeLabel, setSelectedSizeLabel] = useState<string>();
 
   const [selectedSizeDisplayName, setSelectedSizeDisplayName] =
-    useState<string>('יש לבחור מידה');
+    useState<string>(textMessages.pleasePickSize);
 
   useEffect(() => {
     if (selectedSizeLabel) {
@@ -44,7 +45,7 @@ export default function ProductSizePickerComponent(
           sx={{ fontWeight: 'bold', marginRight: '5px' }}
           display="inline"
         >
-          מידה:
+          {textMessages.size}:
         </Typography>
 
         <Typography variant="body2" color="text.secondary" display="inline">

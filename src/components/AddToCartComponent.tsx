@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import textMessages from '../shared/TextMessages';
 
 export interface AddToCartComponentProps {
   enabled: boolean;
@@ -23,7 +24,7 @@ export default function AddToCartComponent(props: AddToCartComponentProps) {
           variant="contained"
           onClick={props.add}
         >
-          הוסף לעגלה
+          {textMessages.addToCart}
           <ShoppingCartIcon />
         </Button>
       </Box>

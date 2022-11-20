@@ -1,12 +1,11 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
@@ -36,17 +35,9 @@ export default function Header(props: HeaderProps) {
             <Grid item>
               <Tooltip title="Alerts • No alerts">
                 <IconButton color="inherit">
-                  <NotificationsIcon />
+                  <ShoppingCartIcon />
                 </IconButton>
               </Tooltip>
-            </Grid>
-            <Grid item>
-              <IconButton color="inherit" sx={{ p: 0.5 }}>
-                <Avatar
-                  src="https://www.mnp.ca/-/media/foundation/integrations/personnel/2020/12/16/13/57/personnel-image-4483.jpg?h=800&w=600&hash=9D5E5FCBEE00EB562DCD8AC8FDA8433D"
-                  alt="My Avatar"
-                />
-              </IconButton>
             </Grid>
           </Grid>
         </Toolbar>

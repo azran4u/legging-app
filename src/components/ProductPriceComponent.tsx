@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material';
+import textMessages from '../shared/TextMessages';
 
 export interface ProductPriceComponentProps {
   price?: number;
@@ -18,10 +19,10 @@ export default function ProductPriceComponent(
           marginRight={'5px'}
           sx={{ fontWeight: 'bold' }}
         >
-          מחיר ליחידה:
+          {textMessages.pricePerUnit}:
         </Typography>
         <Typography variant="body2" color="text.secondary" display="inline">
-          {props.price} ש"ח
+          {props.price} {textMessages.newShekel}
         </Typography>
       </Box>
     );

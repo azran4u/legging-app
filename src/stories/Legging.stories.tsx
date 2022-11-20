@@ -1,9 +1,12 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Legging from '../molecules/Legging200DenirComponent';
+import { catalog } from '../model/catalog';
+import Legging200DenirComponent from '../molecules/Legging200DenirComponent';
 
 export default {
-  title: 'Legging',
-  component: Legging,
-} as ComponentMeta<typeof Legging>;
+  title: 'Legging200DenirComponent',
+  component: Legging200DenirComponent,
+} as ComponentMeta<typeof Legging200DenirComponent>;
 
-export const Primary: ComponentStory<typeof Legging> = () => <Legging />;
+export const Primary: ComponentStory<typeof Legging200DenirComponent> = () => (
+  <Legging200DenirComponent legging200denir={catalog.legging200denir} />
+);

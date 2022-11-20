@@ -5,19 +5,19 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import PeopleIcon from '@mui/icons-material/People';
 import SettingsIcon from '@mui/icons-material/Settings';
 import theme from '../shared/theme';
 import textMessages from '../shared/TextMessages';
 import TextMessages from '../shared/TextMessages';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const categories = [
   {
     id: 'Operations',
     children: [
       {
-        id: textMessages.electorsBook,
-        icon: <PeopleIcon />,
+        id: textMessages.cart,
+        icon: <ShoppingCartIcon />,
         active: true,
         visible: true,
       },

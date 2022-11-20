@@ -1,13 +1,10 @@
-import Paper from '@mui/material/Paper';
-import Search from '../components/SearchComponent';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-// import PrivateRoute from '../auth/PrivateRoute';
-import SearchComponent from '../components/SearchComponent';
 import ProtectedRoute from '../auth/PrivateRoute';
 import LoginPage from '../pages/LoginPage';
 import LogoutPage from '../pages/LogoutPage';
 import NotAuthorizedPage from '../pages/NotAuthorizedPage';
-import Legging from '../molecules/Legging200DenirComponent';
+import Legging200DenirComponent from '../molecules/Legging200DenirComponent';
+import { catalog } from '../model/catalog';
 
 export default function Content() {
   return (
@@ -24,7 +21,7 @@ export default function Content() {
             </ProtectedRoute>
           }
         />
-        <Route path="/products" element={<Legging />} />
+        <Route path="/products" element={<Legging200DenirComponent legging200denir={catalog.legging200denir}/>} />
       </Routes>
     </BrowserRouter>
   );

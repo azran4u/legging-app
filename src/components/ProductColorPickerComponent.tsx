@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { ColorOption } from '../model/catalog';
 import CircleRoundedIcon from '@mui/icons-material/CircleRounded';
 import AdjustOutlinedIcon from '@mui/icons-material/AdjustOutlined';
+import textMessages from '../shared/TextMessages';
 
 export interface ProductColorPickerComponentProps {
   colors: ColorOption[];
@@ -13,7 +14,7 @@ export default function ProductColorPickerComponent(
   props: ProductColorPickerComponentProps
 ) {
   const [selectedColorDisplayName, setSelectedColorDisplayName] =
-    useState<string>('יש לבחור צבע');
+    useState<string>(textMessages.pleasePickColor);
 
   const [selectedColorLabel, setSelectedColorLabel] = useState<string>();
 
@@ -47,7 +48,7 @@ export default function ProductColorPickerComponent(
           sx={{ fontWeight: 'bold', marginRight: '5px' }}
           display="inline"
         >
-          צבע:
+          {textMessages.color}:
         </Typography>
         <Typography variant="body2" color="text.secondary" display="inline">
           {selectedColorDisplayName}

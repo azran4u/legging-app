@@ -1,9 +1,20 @@
 class TextMessages {
-  appName = 'שם האפליקציה';
+  appName = 'טייץ השומרון';
   addUser = 'הוסף משתמש';
-  electorsBook = 'ספר בוחרים';
+  cart = 'עגלה';
+  addToCart = 'הוסף לעגלה';
+  pleasePickColor = 'יש לבחור צבע';
+  pleasePickSize = 'יש לבחור מידה';
+  size = 'מידה';
+  color = 'צבע';
+  count = 'כמות';
+  discount = 'מבצע';
   settings = 'הגדרות';
   admin = 'ניהול';
+  items = 'פריטים';
+  buyingAbove = 'בקנייה מעל';
+  newShekel = `ש"ח`;
+  pricePerUnit = 'מחיר ליחידה';
   allRightsReserved = '©️ כל הזכויות שמורות';
   googleLogo = 'גוגל לוגו';
   loginWithGoogle = 'כניסה עם גוגל';
