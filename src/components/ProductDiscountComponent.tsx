@@ -4,6 +4,7 @@ import textMessages from '../shared/TextMessages';
 
 export interface ProductDiscountComponentProps {
   aboveCountDiscount?: AboveCountDiscount;
+  displayText?: string;
 }
 
 export default function ProductDiscountComponent(
@@ -20,11 +21,18 @@ export default function ProductDiscountComponent(
         >
           {textMessages.discount}:
         </Typography>
-        <Typography variant="body2" color="text.secondary" display="inline">
-          {props.aboveCountDiscount.price} {textMessages.newShekel}{' '}
-          {textMessages.buyingAbove} {props.aboveCountDiscount.count}{' '}
-          {textMessages.items}
-        </Typography>
+        {props?.displayText && (
+          <Typography variant="body2" color="text.secondary" display="inline">
+            {props.displayText}
+          </Typography>
+        )}
+        {!props?.displayText && (
+          <Typography variant="body2" color="text.secondary" display="inline">
+            {props.aboveCountDiscount.price} {textMessages.newShekel}{' '}
+            {textMessages.perItem} {textMessages.buyingAbove}{' '}
+            {props.aboveCountDiscount.count} {textMessages.items}
+          </Typography>
+        )}
       </Box>
     );
   }

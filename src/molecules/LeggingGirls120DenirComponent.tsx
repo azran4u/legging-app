@@ -4,11 +4,11 @@ import CardContent from '@mui/material/CardContent';
 import { useEffect, useState } from 'react';
 import {
   ColorOption,
-  Legging200Denir,
   legs,
   PriceOptions,
   Legging200DenirProductVariants,
   SizeOption,
+  LeggingGirls120Denir,
 } from '../model/catalog';
 import ProductDescriptionComponent from '../components/ProductDescriptionComponent';
 import ProductPriceComponent from '../components/ProductPriceComponent';
@@ -19,21 +19,16 @@ import ProductSizePickerComponent from '../components/ProductSizePickerComponent
 import ProductCountPickerComponent from '../components/ProductCountPickerComponent';
 import AddToCartComponent from '../components/AddToCartComponent';
 import { Box } from '@mui/material';
+import ProductSizeComponent from '../components/ProductSizeComponent';
 
 export interface Legging200DenirComponentProps {
-  legging200denir: Legging200Denir;
+  leggingGirls120denir: LeggingGirls120Denir;
 }
 
 export default function Legging200DenirComponent(
   props: Legging200DenirComponentProps
 ) {
   const [colors, setColors] = useState<ColorOption[]>([]);
-
-  const [sizes, setSizes] = useState<SizeOption[]>([]);
-
-  const [variants, setVariants] = useState<Legging200DenirProductVariants>();
-
-  const [priceOptions, setPriceOptions] = useState<PriceOptions>();
 
   const [selectedImage, setSelectedImage] = useState<string>(
     'legging-bordeaux.jpg'
@@ -42,10 +37,6 @@ export default function Legging200DenirComponent(
   const [selectedColorLabel, setSelectedColorLabel] = useState<string>();
   const [selectedColorDisplayName, setSelectedColorDisplayName] =
     useState<string>('יש לבחור צבע');
-
-  const [selectedSizeLabel, setSelectedSizeLabel] = useState<string>();
-  const [selectedSizeDisplayName, setSelectedSizeDisplayName] =
-    useState<string>('יש לבחור מידה');
 
   const [selectedLegLabel, setSelectedLegLabel] = useState<string>();
   const [selectedLegDisplayName, setSelectedLegDisplayName] =
@@ -56,36 +47,19 @@ export default function Legging200DenirComponent(
   const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
-    if (
-      selectedColorLabel &&
-      selectedSizeLabel &&
-      selectedLegLabel &&
-      count > 0
-    ) {
+    if (selectedColorLabel && selectedLegLabel && count > 0) {
       setAllowedAddToCart(true);
     } else {
       setAllowedAddToCart(false);
     }
-  }, [selectedColorLabel, selectedSizeLabel, selectedLegLabel, count]);
-
-  useEffect(() => {
-    if (variants) {
-      setColors(variants.colors);
-      setSizes(variants.sizes);
-    }
-  }, [variants]);
+  }, [selectedColorLabel, selectedLegLabel, count]);
 
   useEffect(() => {
     const item = legs.find((leg) => leg.label === selectedLegLabel);
     if (item) {
       setSelectedLegDisplayName(item.displayName!);
-    }
-
-    if (selectedLegLabel) {
       //@ts-ignore
-      const productVariants: Legging200DenirProductVariants = props
-        .legging200denir[selectedLegLabel] as Legging200DenirProductVariants;
-      setVariants(productVariants);
+      setColors(props.leggingGirls120denir[selectedLegLabel].colors);
     }
   }, [selectedLegLabel]);
 
@@ -97,16 +71,6 @@ export default function Legging200DenirComponent(
     }
   }, [selectedColorLabel]);
 
-  useEffect(() => {
-    const size = variants?.sizes.find(
-      (size) => size.value === selectedSizeLabel
-    );
-    if (size) {
-      setPriceOptions(size?.price);
-      setSelectedSizeDisplayName(size?.displayText);
-    }
-  }, [variants, selectedSizeLabel]);
-
   return (
     <Card
       sx={{
@@ -116,41 +80,31 @@ export default function Legging200DenirComponent(
         width: '100%',
       }}
     >
+      <CardMedia
+        component="img"
+        height="194"
+        image={'../../src/assets/' + selectedImage}
+        alt={selectedImage}
+        sx={{ width: '100px', height: '150px' }}
+      />
       <CardContent>
         <ProductDescriptionComponent
-          description={props.legging200denir.description}
+          description={props.leggingGirls120denir.description}
+        />
+        <ProductPriceComponent
+          price={props.leggingGirls120denir.price?.perUnit}
         />
 
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row-reverse',
-            justifyContent: 'normal',
-          }}
-        >
-          <CardMedia
-            component="img"
-            image={'../../src/assets/' + selectedImage}
-            alt={selectedImage}
-            sx={{ width: '100px', height: '150px' }}
-          />
-          <Box>
-            <ProductPriceComponent price={priceOptions?.perUnit} />
+        <ProductDiscountComponent
+          displayText={props.leggingGirls120denir.price.displayText}
+          aboveCountDiscount={
+            props.leggingGirls120denir.price?.aboveCountDiscount
+          }
+        />
 
-            <ProductDiscountComponent
-              aboveCountDiscount={priceOptions?.aboveCountDiscount}
-            />
-
-            <LegPickerComponent
-              options={legs}
-              selectedLeg={(leg) => setSelectedLegLabel(leg)}
-            />
-          </Box>
-        </Box>
-
-        <ProductSizePickerComponent
-          sizes={sizes}
-          selectedSizeLabel={(label) => setSelectedSizeLabel(label)}
+        <LegPickerComponent
+          options={legs}
+          selectedLeg={(leg) => setSelectedLegLabel(leg)}
         />
 
         <ProductColorPickerComponent
@@ -158,9 +112,14 @@ export default function Legging200DenirComponent(
           selectedColorLabel={(label) => setSelectedColorLabel(label)}
         />
 
+        <ProductSizeComponent
+          displayText={props.leggingGirls120denir.size.displayText}
+        />
+
         <ProductCountPickerComponent
           selectedCount={(count) => setCount(count)}
         />
+
         <AddToCartComponent
           enabled={allowAddToCart}
           add={() => console.log('add to cart')}

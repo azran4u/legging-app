@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import Navigator from './Navigator';
 import Content from './Content';
 import Header from './Header';
-import Copyright from '../components/Copyright';
+import Copyright from '../components/CopyrightComponent';
 import theme from '../shared/theme';
 
 const drawerWidth = 256;
@@ -40,7 +40,7 @@ export default function Layout() {
         <Header onDrawerToggle={handleDrawerToggle} />
         <Box
           component="main"
-          sx={{ flex: 1, py: 6, px: 4, bgcolor: '#eaeff1' }}
+          sx={{ flex: 1, py: 6, px: 4, bgcolor: '#eaeff1', width: '100%' }}
         >
           <Content />
         </Box>

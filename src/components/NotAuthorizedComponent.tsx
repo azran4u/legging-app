@@ -1,6 +1,6 @@
 import { Container, Link, Typography } from '@mui/material';
 import textMessages from '../shared/TextMessages';
-import LogoComponent from './Logos/LogoComponent';
+import LogoComponent from './Logos/AppLogoComponent';
 import LogoutWithGoogleComponent from './LogoutWithGoogleComponent';
 
 interface UnAuthorizedProps {

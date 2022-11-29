@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Copyright from '../components/Copyright';
+import Copyright from '../components/CopyrightComponent';
 
 export default {
   title: 'Copyright',

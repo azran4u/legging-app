@@ -6,6 +6,7 @@ class TextMessages {
   pleasePickColor = 'יש לבחור צבע';
   pleasePickSize = 'יש לבחור מידה';
   size = 'מידה';
+  leg = 'רגל';
   leggings = 'טייצים';
   color = 'צבע';
   count = 'כמות';
@@ -13,6 +14,7 @@ class TextMessages {
   settings = 'הגדרות';
   admin = 'ניהול';
   items = 'פריטים';
+  perItem = 'ליחידה';
   buyingAbove = 'בקנייה מעל';
   newShekel = `ש"ח`;
   pricePerUnit = 'מחיר ליחידה';

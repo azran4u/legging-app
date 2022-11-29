@@ -3,8 +3,7 @@ import ProtectedRoute from '../auth/PrivateRoute';
 import LoginPage from '../pages/LoginPage';
 import LogoutPage from '../pages/LogoutPage';
 import NotAuthorizedPage from '../pages/NotAuthorizedPage';
-import Legging200DenirComponent from '../molecules/Legging200DenirComponent';
-import { catalog } from '../model/catalog';
+import ProductsPage from '../pages/ProductsPage';
 
 export default function Content() {
   return (
@@ -21,7 +20,7 @@ export default function Content() {
             </ProtectedRoute>
           }
         />
-        <Route path="/products" element={<Legging200DenirComponent legging200denir={catalog.legging200denir}/>} />
+        <Route path="/products" element={<ProductsPage />} />
       </Routes>
     </BrowserRouter>
   );

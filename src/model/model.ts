@@ -98,7 +98,13 @@ export interface AvatarUrlField {
   avatarUrl: AvatarUrl;
 }
 
+
+
 // Entity interfaces
+
+
+
+
 export interface City extends IdField, NameField {}
 
 export interface Street extends IdField, NameField {}

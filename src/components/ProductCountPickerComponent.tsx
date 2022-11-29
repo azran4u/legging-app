@@ -14,9 +14,7 @@ export default function ProductCountPickerComponent(
   const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
-    if (count) {
-      props.selectedCount(count);
-    }
+    props.selectedCount(count);
   }, [count]);
 
   return (

@@ -3,7 +3,7 @@ import { Container, Divider, Typography } from '@mui/material';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginWithGoogleComponent from '../components/LoginWithGoogleComponent';
-import LogoComponent from '../components/Logos/LogoComponent';
+import LogoComponent from '../components/Logos/AppLogoComponent';
 import textMessages from '../shared/TextMessages';
 import { useAppDispatch, useAppSelector } from '../store';
 import {

@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import LogoComponent from '../components/Logos/LogoComponent';
+import LogoComponent from '../components/Logos/AppLogoComponent';
 
 export default {
   title: 'Logos/LogoComponent',

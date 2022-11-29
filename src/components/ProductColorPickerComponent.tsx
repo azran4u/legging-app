@@ -19,6 +19,10 @@ export default function ProductColorPickerComponent(
   const [selectedColorLabel, setSelectedColorLabel] = useState<string>();
 
   useEffect(() => {
+    setSelectedColorLabel(undefined);
+  }, [props.colors]);
+
+  useEffect(() => {
     if (selectedColorLabel) {
       const color = props.colors.find((c) => c.value === selectedColorLabel);
       if (color) {

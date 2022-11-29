@@ -1,5 +1,5 @@
 import { Container, Divider, Typography } from '@mui/material';
-import LogoComponent from '../components/Logos/LogoComponent';
+import LogoComponent from '../components/Logos/AppLogoComponent';
 import LoginWithGoogleComponent from '../components/LoginWithGoogleComponent';
 import textMessages from '../shared/TextMessages';
 import NotAuthorizedComponent from '../components/NotAuthorizedComponent';
